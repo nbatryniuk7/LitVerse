@@ -1,1 +1,1 @@
-# IS-library
+# LitVerse
