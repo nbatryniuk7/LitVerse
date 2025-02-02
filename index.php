@@ -38,21 +38,31 @@
                   Dropdown
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#"></a></li>
                   <li><a class="dropdown-item" href="#">Another action</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
               </li>
             </ul>
-
+<!--
             <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <button class="btn btn-outline-success" type="submit">Search</button>-->
+
+              <div class="search-container">
+                <form action="" method="GET">
+                  <input type="text" name="query" class="search-input" placeholder="Enter the book title or author" required>
+                  <button type="submit" class="search-button">Search</button>
+                </form>
+              </div>
+
             </form>
           </div>
         </div>
           </nav>
+
+
 
       <!--Home-->
           <section id = "home">
