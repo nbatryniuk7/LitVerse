@@ -14,7 +14,7 @@
       <!--Navbar-->
            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
         <div class="container">
-          <img class="logo"src="assets/imgs/z1.png" />
+          <img class="logo"src="assets/imgs/background/z1.png" />
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -80,27 +80,27 @@
           <div class = "row p-0 m-0">
             <!--One-->
             <div class = "one col-lg-4 col-md-12 col-sm-12 p-0">
-              <img class = "img-fluid" src = "assets/imgs/b1.jpg"/>
+              <img class = "img-fluid" src = "assets/imgs/heartwarming_stories.png"/>
               <div class = "details">
-                <h2>Extreamly Awesome Books</h2>
+                <h2>Heartwarming Stories</h2>
                 <button class = "text-uppercase">Shop Now</button>
               </div>
             </div>
 
             <!--Two-->
             <div class = "one col-lg-4 col-md-12 col-sm-12 p-0">
-              <img class = "img-fluid" src = "assets/imgs/b2.png"/>
+              <img class = "img-fluid" src = "assets/imgs/mystery_mania.png"/>
               <div class = "details">
-                <h2>Awesome Books</h2>
+                <h2>Mystery Mania</h2>
                 <button class = "text-uppercase">Shop Now</button>
               </div>
             </div>
 
             <!--Three-->
             <div class = "one col-lg-4 col-md-12 col-sm-12 p-0">
-              <img class = "img-fluid" src = "assets/imgs/b3.png"/>
+              <img class = "img-fluid" src = "assets/imgs/brain_boosters.png"/>
               <div class = "details">
-                <h2>50% OFF</h2>
+                <h2>Brain Boosters</h2>
                 <button class = "text-uppercase">Shop Now</button>
               </div>
             </div>
@@ -117,33 +117,16 @@
             </div>
             <div class = "row mx-auto container-fluid">
 
+            <?php include 'server/get_featured_books.php'; ?>
+            <?php while($row=$featured_books->fetch_assoc()){ ?>
             <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
-              <img class = "img-fluid mb-3" src = "assets/imgs/b1.jpg"/>
-              <h5 class = "p-name">Gerald's Game</h5>
-              <h4 class = "p-price">₴400.00</h4>
+              <img class = "img-fluid mb-3" src = "assets/imgs/<?php echo $row['book_image']; ?>" />
+              <h5 class = "p-name"><?php echo $row['book_title']; ?></h5>
+              <h4 class = "p-price"><?php echo $row['book_price']; ?></h4>
               <button class = "buy-btn">Buy Now</button>
             </div>
+            <?php } ?>
 
-            <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
-              <img class = "img-fluid mb-3" src = "assets/imgs/b2.png"/>
-              <h5 class = "p-name">God Emperor of Dune</h5>
-              <h4 class = "p-price">₴490.00</h4>
-              <button class = "buy-btn">Buy Now</button>
-            </div>
-
-            <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
-              <img class = "img-fluid mb-3" src = "assets/imgs/b3.png"/>
-              <h5 class = "p-name">Schatten im Paradies</h5>
-              <h4 class = "p-price">₴330.00</h4>
-              <button class = "buy-btn">Buy Now</button>
-            </div>
-
-            <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
-              <img class = "img-fluid mb-3" src = "assets/imgs/b4.png"/>
-              <h5 class = "p-name">Royal Assassin</h5>
-              <h4 class = "p-price">₴490.00</h4>
-              <button class = "buy-btn">Buy Now</button>
-            </div>
           </div>
           </section>
 
@@ -201,7 +184,7 @@
           <footer class="mt-5 py-5">
   <div class="row container mx-auto pt-5">
     <div class="footer-one col-lg-3 col-md-6 col-sm-12">
-      <img class = "logo2" src="assets/imgs/Designer-removebg-preview.png"/>
+      <img class = "logo2" src="assets/imgs/background/Designer-removebg-preview.png"/>
       <p class="pt-3">We provide the best books</p>
     </div>
 
