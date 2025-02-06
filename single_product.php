@@ -1,3 +1,28 @@
+<?php
+
+include('server/connection.php');
+
+if(isset($_GET['book_id'])){
+
+  $book_id = $_GET['book_id'];
+
+  $stmt = $conn->prepare("SELECT * FROM books WHERE book_id = ?");
+  $stmt->bind_param("i", $book_id);
+
+  $stmt->execute();
+
+  $book = $stmt->get_result();
+
+
+  //no product id was given
+} else {
+  header('location: index.php');
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,36 +97,47 @@
     <!--Single product-->  
     <section class = "container single-product my-5 pt-5">
         <div class = "row mt-5">
+          <?php while($row = $book->fetch_assoc()){?>
+
             <div class = "col-lg-5 col-md-6 col-sm-12">
-                <img class = "img-fluid w-30 pb-1" src = "assets/imgs/b1.jpg" id = "mainImg"/>
+                <img class = "img-fluid w-30 pb-1" src = "assets/imgs/<?php echo $row['book_image'];?>" id = "mainImg"/>
                 <div class = "small-img-group">
-                    <div class = "small-img-col">
-                        <img src = "assets/imgs/b2.png" width="30%" class = "small-img"/>
+                <div class = "small-img-col">
+                        <img src = "assets/imgs/<?php echo $row['book_image'];?>" width="30%" class = "small-img"/>
                     </div>
                     <div class = "small-img-col">
-                        <img src = "assets/imgs/b3.png" width="30%" class = "small-img"/>
+                        <img src = "assets/imgs/<?php echo $row['book_image2'];?>" width="30%" class = "small-img"/>
                     </div>
                     <div class = "small-img-col">
-                        <img src = "assets/imgs/b4.png" width="30%" class = "small-img"/>
+                        <img src = "assets/imgs/<?php echo $row['book_image3'];?>" width="30%" class = "small-img"/>
                     </div>
                     <div class = "small-img-col">
-                        <img src = "assets/imgs/b5.png" width="30%" class = "small-img"/>
+                        <img src = "assets/imgs/<?php echo $row['book_image4'];?>" width="30%" class = "small-img"/>
                     </div>
+
                 </div>
             </div>
-
+      
             <div class="col-lg-6 col-md-12 col-12">
-                <h6>Men/Shoes</h6>
-                <h3 class = "py-4">Men's Fashion</h3>
-                <h2>₴250.00</h2>
-                <input type = "number" value = "1"/>
-                <button class = "buy-btn">Add To Card</button>
-                <h4 class = "mt-5 mb-5">Product details</h4>
-                <span>The details of this product will be displyed shortly.</span>
+                <h6><?php echo $row['genre']?></h6>
+                <h3 class = "py-4"><?php echo $row['book_title']?></h3>
+                <h2>₴<?php echo $row['book_price']?></h2>
+
+                <form method = "POST" action = "cart.php">
+              <input type = "hidden" name = "book_image" value = "<?php echo $row['book_image'];?>"/>
+              <input type = "hidden" name = "book_title" value = "<?php echo $row['book_title'];?>"/>
+              <input type = "hidden" name = "book_price" value = "<?php echo $row['book_price'];?>"/>
+
+                <input type = "number" name = "book_quantity" value = "1"/>
+                <button class = "buy-btn" type = "submit" name = "add_to_cart">Add To Card</button>
+                </form>
+
+                <h4 class = "mt-5 mb-5"><?php echo $row['author']?></h4>
+                <span><?php echo $row['book_description'];?>
+              </span>
             </div>
-
-
-
+            
+            <?php } ?>
         </div>
     </section>
 

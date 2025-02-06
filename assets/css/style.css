@@ -109,7 +109,7 @@ h6{
 
 
 #home{
-    background-image: url('../imgs/f6.png');
+    background-image: url('../imgs/background/f6.png');
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -125,6 +125,7 @@ h6{
 #home span{
     color: rgb(114, 90, 70);
 }
+
 
 #new .one img{
     width: 100%;
@@ -146,7 +147,7 @@ h6{
     font-weight: bold;
     transition: 0.4s ease;
     opacity: 0.8;
-    background-color: rgb(1, 1, 1);
+    background-color: #163462;
     width: 100%;
     height: 100%;
 }
@@ -214,7 +215,7 @@ hr {
 }
 
 #banner {
-    background-image: url('../imgs/f4.png');
+    background-image: url('../imgs/background/f4.png');
     width: 100%;
     height: 60vh;
     background-size: cover;

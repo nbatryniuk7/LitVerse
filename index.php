@@ -75,6 +75,28 @@
 
           </section>
 
+            <!--Featured-->
+            <section id = "featured" class = "my-5 pb-5">
+            <div class = "container text-center mt-5 py-5">
+              <h3>Featured books</h3>
+              <hr class = "mx-auto">
+              <p>Here you can check out our featured books</p>
+            </div>
+            <div class = "row mx-auto container-fluid">
+
+            <?php include 'server/get_featured_books.php'; ?>
+            <?php while($row=$featured_books->fetch_assoc()){ ?>
+            <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
+              <img class = "img-fluid mb-3" src = "assets/imgs/<?php echo $row['book_image']; ?>" />
+              <h5 class = "p-name"><?php echo $row['book_title']; ?></h5>
+              <h4 class = "p-price"><?php echo $row['book_price']; ?></h4>
+              <a href = "<?php echo "single_product.php?book_id =". $row['book_id'];?>" ><button class = "buy-btn">Buy Now</button></a>
+            </div>
+            <?php } ?>
+
+          </div>
+          </section>
+
       <!--New-->
           <section id = "new" class = "w-100">
           <div class = "row p-0 m-0">
@@ -108,27 +130,7 @@
           </div>
           </section>
 
-      <!--Featured-->
-          <section id = "featured" class = "my-5 pb-5">
-            <div class = "container text-center mt-5 py-5">
-              <h3>Featured books</h3>
-              <hr class = "mx-auto">
-              <p>Here you can check out our featured books</p>
-            </div>
-            <div class = "row mx-auto container-fluid">
 
-            <?php include 'server/get_featured_books.php'; ?>
-            <?php while($row=$featured_books->fetch_assoc()){ ?>
-            <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
-              <img class = "img-fluid mb-3" src = "assets/imgs/<?php echo $row['book_image']; ?>" />
-              <h5 class = "p-name"><?php echo $row['book_title']; ?></h5>
-              <h4 class = "p-price"><?php echo $row['book_price']; ?></h4>
-              <button class = "buy-btn">Buy Now</button>
-            </div>
-            <?php } ?>
-
-          </div>
-          </section>
 
       <!--Banner-->
           <section id = "banner" class = "my-5 py-5">
@@ -149,33 +151,17 @@
       </div>
       <div class = "row mx-auto container-fluid">
 
-      <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class = "img-fluid mb-3" src = "assets/imgs/cb1.png"/>
-        <h5 class = "p-name">Sherlock Bones and the Mischief in Manhattan</h5>
-        <h4 class = "p-price">₴250.00</h4>
-        <button class = "buy-btn">Buy Now</button>
-      </div>
+      <?php include 'server/get_childrens_books.php'; ?>
+            <?php while($row=$childrens_books->fetch_assoc()){ ?>
 
       <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class = "img-fluid mb-3" src = "assets/imgs/cb2.png"/>
-        <h5 class = "p-name">Tilda Apfelkern. Die Freunde vom Heckenrosenweg</h5>
-        <h4 class = "p-price">₴270.00</h4>
+        <img class = "img-fluid mb-3" src = "assets/imgs/<?php echo $row['book_image']; ?>"/>
+        <h5 class = "p-name"><?php echo $row['book_title']; ?></h5>
+        <h4 class = "p-price"><?php echo $row['book_price']; ?></h4>
         <button class = "buy-btn">Buy Now</button>
       </div>
+      <?php } ?>
 
-      <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class = "img-fluid mb-3" src = "assets/imgs/cb3.png"/>
-        <h5 class = "p-name">Alice’s Adventures in Wonderland / Through the Looking-Glass</h5>
-        <h4 class = "p-price">₴300.00</h4>
-        <button class = "buy-btn">Buy Now</button>
-      </div>
-
-      <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class = "img-fluid mb-3" src = "assets/imgs/cb4.png"/>
-        <h5 class = "p-name">Sherlock Bones and the Vanishing Magician</h5>
-        <h4 class = "p-price">₴250.00</h4>
-        <button class = "buy-btn">Buy Now</button>
-      </div>
     </div>
           </section>  
 
