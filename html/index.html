@@ -14,7 +14,7 @@
       <!--Navbar-->
            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
         <div class="container">
-          <img class="logo"src="assets/imgs/background/z1.png" />
+          <img class="logo"src="assets/imgs/z1.png" />
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -30,12 +30,11 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
+                <a class="nav-link" href="#">Blog</a>
               </li>
 
               <li class="nav-item">
-                <a href="cart.php">Cart</a>
-                <a href="account.html">Account</a>
+                <a class="nav-link" href="#">Contact Us</a>
               </li>
 
               <li class="nav-item dropdown">
@@ -43,31 +42,23 @@
                   Dropdown
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#"></a></li>
+                  <li><a class="dropdown-item" href="#">Action</a></li>
                   <li><a class="dropdown-item" href="#">Another action</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
               </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
             </ul>
-<!--
             <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>-->
-
-              <div class="search-container">
-                <form action="" method="GET">
-                  <input type="text" name="query" class="search-input" placeholder="Enter the book title or author" required>
-                  <button type="submit" class="search-button">Search</button>
-                </form>
-              </div>
-
+              <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
           </div>
         </div>
           </nav>
-
-
 
       <!--Home-->
           <section id = "home">
@@ -80,8 +71,41 @@
 
           </section>
 
-            <!--Featured-->
-            <section id = "featured" class = "my-5 pb-5">
+      <!--New-->
+          <section id = "new" class = "w-100">
+          <div class = "row p-0 m-0">
+            <!--One-->
+            <div class = "one col-lg-4 col-md-12 col-sm-12 p-0">
+              <img class = "img-fluid" src = "assets/imgs/b1.jpg"/>
+              <div class = "details">
+                <h2>Extreamly Awesome Books</h2>
+                <button class = "text-uppercase">Shop Now</button>
+              </div>
+            </div>
+
+            <!--Two-->
+            <div class = "one col-lg-4 col-md-12 col-sm-12 p-0">
+              <img class = "img-fluid" src = "assets/imgs/b2.png"/>
+              <div class = "details">
+                <h2>Awesome Books</h2>
+                <button class = "text-uppercase">Shop Now</button>
+              </div>
+            </div>
+
+            <!--Three-->
+            <div class = "one col-lg-4 col-md-12 col-sm-12 p-0">
+              <img class = "img-fluid" src = "assets/imgs/b3.png"/>
+              <div class = "details">
+                <h2>50% OFF</h2>
+                <button class = "text-uppercase">Shop Now</button>
+              </div>
+            </div>
+
+          </div>
+          </section>
+
+      <!--Featured-->
+          <section id = "featured" class = "my-5 pb-5">
             <div class = "container text-center mt-5 py-5">
               <h3>Featured books</h3>
               <hr class = "mx-auto">
@@ -89,53 +113,35 @@
             </div>
             <div class = "row mx-auto container-fluid">
 
-            <?php include 'server/get_featured_books.php'; ?>
-            <?php while($row=$featured_books->fetch_assoc()){ ?>
             <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
-              <img class = "img-fluid mb-3" src = "assets/imgs/<?php echo $row['book_image']; ?>" />
-              <h5 class = "p-name"><?php echo $row['book_title']; ?></h5>
-              <h4 class = "p-price"><?php echo $row['book_price']; ?></h4>
-              <a href= "<?php echo "single_product.php?book_id=". $row['book_id'];?>" ><button class = "buy-btn">Buy Now</button></a>
+              <img class = "img-fluid mb-3" src = "assets/imgs/b1.jpg"/>
+              <h5 class = "p-name">Gerald's Game</h5>
+              <h4 class = "p-price">₴400.00</h4>
+              <button class = "buy-btn">Buy Now</button>
             </div>
-            <?php } ?>
 
+            <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
+              <img class = "img-fluid mb-3" src = "assets/imgs/b2.png"/>
+              <h5 class = "p-name">God Emperor of Dune</h5>
+              <h4 class = "p-price">₴490.00</h4>
+              <button class = "buy-btn">Buy Now</button>
+            </div>
+
+            <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
+              <img class = "img-fluid mb-3" src = "assets/imgs/b3.png"/>
+              <h5 class = "p-name">Schatten im Paradies</h5>
+              <h4 class = "p-price">₴330.00</h4>
+              <button class = "buy-btn">Buy Now</button>
+            </div>
+
+            <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
+              <img class = "img-fluid mb-3" src = "assets/imgs/b4.png"/>
+              <h5 class = "p-name">Royal Assassin</h5>
+              <h4 class = "p-price">₴490.00</h4>
+              <button class = "buy-btn">Buy Now</button>
+            </div>
           </div>
           </section>
-
-      <!--New-->
-          <section id = "new" class = "w-100">
-          <div class = "row p-0 m-0">
-            <!--One-->
-            <div class = "one col-lg-4 col-md-12 col-sm-12 p-0">
-              <img class = "img-fluid" src = "assets/imgs/heartwarming_stories.png"/>
-              <div class = "details">
-                <h2>Heartwarming Stories</h2>
-                <button class = "text-uppercase">Shop Now</button>
-              </div>
-            </div>
-
-            <!--Two-->
-            <div class = "one col-lg-4 col-md-12 col-sm-12 p-0">
-              <img class = "img-fluid" src = "assets/imgs/mystery_mania.png"/>
-              <div class = "details">
-                <h2>Mystery Mania</h2>
-                <button class = "text-uppercase">Shop Now</button>
-              </div>
-            </div>
-
-            <!--Three-->
-            <div class = "one col-lg-4 col-md-12 col-sm-12 p-0">
-              <img class = "img-fluid" src = "assets/imgs/brain_boosters.png"/>
-              <div class = "details">
-                <h2>Brain Boosters</h2>
-                <button class = "text-uppercase">Shop Now</button>
-              </div>
-            </div>
-
-          </div>
-          </section>
-
-
 
       <!--Banner-->
           <section id = "banner" class = "my-5 py-5">
@@ -156,17 +162,33 @@
       </div>
       <div class = "row mx-auto container-fluid">
 
-      <?php include 'server/get_childrens_books.php'; ?>
-            <?php while($row=$childrens_books->fetch_assoc()){ ?>
-
       <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class = "img-fluid mb-3" src = "assets/imgs/<?php echo $row['book_image']; ?>"/>
-        <h5 class = "p-name"><?php echo $row['book_title']; ?></h5>
-        <h4 class = "p-price"><?php echo $row['book_price']; ?></h4>
+        <img class = "img-fluid mb-3" src = "assets/imgs/cb1.png"/>
+        <h5 class = "p-name">Sherlock Bones and the Mischief in Manhattan</h5>
+        <h4 class = "p-price">₴250.00</h4>
         <button class = "buy-btn">Buy Now</button>
       </div>
-      <?php } ?>
 
+      <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
+        <img class = "img-fluid mb-3" src = "assets/imgs/cb2.png"/>
+        <h5 class = "p-name">Tilda Apfelkern. Die Freunde vom Heckenrosenweg</h5>
+        <h4 class = "p-price">₴270.00</h4>
+        <button class = "buy-btn">Buy Now</button>
+      </div>
+
+      <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
+        <img class = "img-fluid mb-3" src = "assets/imgs/cb3.png"/>
+        <h5 class = "p-name">Alice’s Adventures in Wonderland / Through the Looking-Glass</h5>
+        <h4 class = "p-price">₴300.00</h4>
+        <button class = "buy-btn">Buy Now</button>
+      </div>
+
+      <div class = "product text-center col-lg-3 col-md-4 col-sm-12">
+        <img class = "img-fluid mb-3" src = "assets/imgs/cb4.png"/>
+        <h5 class = "p-name">Sherlock Bones and the Vanishing Magician</h5>
+        <h4 class = "p-price">₴250.00</h4>
+        <button class = "buy-btn">Buy Now</button>
+      </div>
     </div>
           </section>  
 
@@ -175,7 +197,7 @@
           <footer class="mt-5 py-5">
   <div class="row container mx-auto pt-5">
     <div class="footer-one col-lg-3 col-md-6 col-sm-12">
-      <img class = "logo2" src="assets/imgs/background/Designer-removebg-preview.png"/>
+      <img class = "logo2" src="assets/imgs/Designer-removebg-preview.png"/>
       <p class="pt-3">We provide the best books</p>
     </div>
 

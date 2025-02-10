@@ -368,13 +368,18 @@ footer .copyright img {
 .cart .remove-btn {
     color: #fb774b;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 14px;
+    background-color: #fff;
+    border: none;
+    width: 80%;
 }
 
 .cart .edit-btn {
     color: #fb774b;
     text-decoration: none;
     font-size: 15px;
+    background-color: #fff;
+    border: none;
 }
 
 .cart .product-info p {

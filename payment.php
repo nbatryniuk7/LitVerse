@@ -1,3 +1,15 @@
+<?php 
+
+session_start();
+
+
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +27,7 @@
       <!--Navbar-->
       <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
         <div class="container">
-          <img class="logo"src="assets/imgs/z1.png" />
+          <img class="logo"src="assets/imgs/background/z1.png" />
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -62,45 +74,16 @@
       </nav>   
       
       
-      <!--Checkout-->
+      <!--Payment-->
       <section class = "my-5 py-5">
         <div class = "container text-center mt-3 pt-5">
             <h2 class = "form-weight-bold">Check Out</h2>
             <hr class = "mx-auto">
         </div>
-        <div class = "mx-auto container">
-            <form id = "checkout-form">
-
-                <div class = "form-group checkout-small-element">
-                    <label>Name</label>
-                    <input type = "text" class = "form-control" id = "checkout-name" name = "name" placeholder="Name" required/>
-                </div>
-                
-                <div class = "form-group checkout-small-element">
-                    <label>Email</label>
-                    <input type = "text" class = "form-control" id = "checkout-email" name = "email" placeholder="Email" required/>
-                </div>
-
-                <div class = "form-group checkout-small-element">
-                    <label>Phone</label>
-                    <input type = "tel" class = "form-control" id = "checkout-phone" name = "phone" placeholder="Phone" required/>
-                </div>
-
-                <div class = "form-group checkout-small-element">
-                    <label>City</label>
-                    <input type = "text" class = "form-control" id = "checkout-city" name = "city" placeholder="City" required/>
-                </div>
-
-                <div class = "form-group checkout-large-element">
-                    <label>Address</label>
-                    <input type = "text" class = "form-control" id = "checkout-address" name = "address" placeholder="Address" required/>
-                </div>
-
-                <div class = "form-group checkout-btn-container">
-                    <input type = "submit" class = "btn" id = "checkout-btn" value="Checkout"/>
-                </div>
-
-            </form>
+        <div class = "mx-auto container text-center">
+            <p><?php echo $_GET['order_status']; ?></p>
+            <p>Total payment: ₴ <?php echo $_SESSION['total']; ?></p>
+            <input type = "submit" class = "btn btn-primary"  value="Pay Now"/></p>
         </div>
       </section>
       
@@ -109,7 +92,7 @@
       <footer class="mt-5 py-5">
         <div class="row container mx-auto pt-5">
           <div class="footer-one col-lg-3 col-md-6 col-sm-12">
-            <img class = "logo2" src="assets/imgs/Designer-removebg-preview.png"/>
+            <img class = "logo2" src="assets/imgs/background/Designer-removebg-preview.png"/>
             <p class="pt-3">We provide the best books</p>
           </div>
       
@@ -153,7 +136,7 @@
           <div class="row container mx-auto">
       
             <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-              <img src="assets/imgs/Visa-Mastercard.png"/>
+              <img src="assets/imgs/background/Visa-Mastercard.png"/>
             </div>
       
             <div class="col-lg-3 col-md-5 col-sm-12 mb-4 text-nowrap mb-2">
