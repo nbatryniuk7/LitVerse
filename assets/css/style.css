@@ -1,20 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+IN&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
-#home p {
-  color: aliceblue;
+#home p{
+  color: #695A4E;
   font-family: "Playwrite IN", serif;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
 }
 
+#home h1{
+    font-family: "Playfair Display", serif;
+    color: #695A4E;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 4rem;
+  }
+
+
 button{
     font-size: 0.8rem;
     font-weight: 900;
     outline: none;
     border: none;
-    background-color: #1d1d1d;
+    background-color: #3C5A3D;
     color: aliceblue;
     padding: 13px 30px;
     text-transform: uppercase;
@@ -23,14 +34,16 @@ button{
 }
 
 button:hover{
-    background-color: rgb(114, 90, 70);
+    /* background-color: rgb(114, 90, 70); */
+    background-color: #BBE79D;
 }
 
 body{
     font-family: 'Poppins', sans-serif;
-    color: rgb(41, 81, 116);
+    color: #695A4E;
     font-weight: 700;
     font-style: normal;
+    background-color: #F4F0EC;
 }
 
 
@@ -45,7 +58,7 @@ h2{
 }
 
 h3{
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 800;
 }
 
@@ -56,35 +69,52 @@ h4{
 
 h5{
     font-size: 1rem;
-    font-weight: 590;
+    font-weight: 500;
 }
 
 h6{
-    color: #d8d8d8;
+    color: #695A4E;
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
+hr {
+    width: 60px;
+    height: 2px !important; 
+    background-color: #83D34D !important; 
+    border: none;
+    border-radius: 5px; 
+    opacity: 50;
+}
+
+
 .navbar{
-    color: #e6f2ff;
+    color: #3C5A3D !important;
+    background-color: #EAE2DA !important;
     height: 95px;
     font-size: 16px;
     padding-top: 2rem !important;
     padding-bottom: 2rem !important; 
     top: 0;
-    box-shadow: 0 5px 10px rgb(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgb(0, 0, 0, 0.3);
 }
 
-.navbar-light .navbar-nav .navbar-link{
+.navbar-light .navbar-nav .nav-link {
     padding: 0 20px;
-    color: black;
+    color: #3C5A3D !important; 
     transition: 0.4s ease;
 }
 
-.navbar-light .navbar-nav .navbar-link:hover,
-.navbar i:hover,
-.navbar-light .navbar-nav .navbar-link.active
-.navbar i:hover{
-    color: rgb(114, 90, 70);
+/* Колір активного посилання */
+.navbar-light .navbar-nav .nav-link.active {
+    color: #83D34D !important;
+    font-weight: bold; 
 }
+
+.navbar-light .navbar-nav .nav-link:hover{
+    color: #83D34D !important; 
+}
+
 
 .navbar i {
     font-size: 1.2rem;
@@ -109,7 +139,7 @@ h6{
 
 
 #home{
-    background-image: url('../imgs/background/f6.png');
+    background-image: url(../imgs/background/flb3.png);
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -143,11 +173,11 @@ h6{
     position: absolute;
     top: 0;
     left: 0;
-    color: burlywood;
+    color: #3C5A3D;
     font-weight: bold;
     transition: 0.4s ease;
     opacity: 0.8;
-    background-color: #163462;
+    background-color: #695A4E;
     width: 100%;
     height: 100%;
 }
@@ -180,8 +210,9 @@ h6{
     text-align: end;
 }
 
-/* Product */
 
+
+/* Product */
 .product {
     cursor: pointer;
     margin-bottom: 2rem;
@@ -196,7 +227,7 @@ h6{
 }
 
 .product .buy-btn {
-    background-color: rgb(114, 90, 70);
+    background-color: #695A4E;
     transform: translateY(50px);
     opacity: 0;
     transition: 0.3s all;
@@ -207,17 +238,77 @@ h6{
     opacity: 1;
 }
 
-hr {
-    width: 60px;
-    height: 1px !important;
-    opacity: 1 !important;
-    background-color: rgb(114, 90, 70);
+#mainImg {
+    margin-top: 0px;
+    width: 55%;  /* Змінює ширину (можна поставити 100%, 70% тощо) */
+    max-width: 400px;  /* Максимальна ширина */
+    height: auto;  /* Щоб зберегти пропорції */
 }
 
+.small-img-group {
+    display: flex;
+    justify-content: flex-start; /* або flex-start */
+    align-items: center;
+    gap: 5px; 
+    margin: 0;
+    padding: 0;
+}
+
+.small-img-col {
+    flex: 1;
+    max-width: 15%; /* Зробити так, щоб 4 колонки рівномірно ділили простір */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.small-img {
+    width: 100%; /* Вирівнює всі маленькі зображення */
+    height: auto;
+    display: block;
+    border: 1px solid #ddd; /* Тонка рамка для тестування, можна прибрати */
+}
+
+.single-product input {
+    width: 50px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.single-product input:focus {
+    outline: none;
+}
+
+.single-product .buy-btn {
+    background-color: #98DB6B;
+    opacity: 1;
+    transition: 0.4s all;
+}
+
+.single-product .buy-btn:hover {
+    background-color: #3C5A3D;
+}
+
+.single-product h3 {
+    color: #443A32;
+    font-size: 3rem;
+    font-weight: 900 !important;
+}
+
+.single-product h2 {
+    color: #695A4E;
+    font-size: 2rem;
+    font-weight: bold !important;
+}
+
+
+
+/* Banner */
 #banner {
-    background-image: url('../imgs/background/f4.png');
+    background-image: url('../imgs/background/banner.png');
     width: 100%;
-    height: 60vh;
+    height: 70vh;
     background-size: cover;
     background-position-x: center;
     background-position-y: 80px;
@@ -229,18 +320,29 @@ hr {
     align-items: flex-start;
 }
 
-#banner h4 {
-    color:rgb(114, 90, 70);
-}
+#banner p{
+    color: #875C5B;
+    font-family: "Playwrite IN", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.4rem;
+    margin-left: auto;
+  }
 
-#banner button {
-    background-color: #B69D88;
-}
+  #banner h4{
+    font-family: "Poppins", sans-serif;
+    color: #875C5B;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 0.9rem;
+    margin-left: 10px;
+  }
 
-#banner button:hover {
-    background-color: #1d1d1d;
-}
 
+
+/* Footer */
 footer {
     background-color: #222222;
 }
@@ -265,7 +367,7 @@ footer li a:hover {
     color: #d8d8d8;
 }
 
-footer p {
+footer p { 
     color: #999;
     font-size: 0.8rem;
 }
@@ -285,49 +387,17 @@ footer .copyright img {
 }
 
 .pagination a {
-    color: coral;
+    color: #BBE79D;
 }
 
 .pagination li:hover a{
     color: #fff;
-    background-color: coral;
-}
-
-.small-img-group {
-    display: flex;
-    justify-content: space-between;
-}
-
-.small-img-col {
-    flex-basis: 24%;
-    cursor: pointer;
-}
-
-.single-product input {
-    width: 50px;
-    height: 40px;
-    padding-left: 10px;
-    font-size: 16px;
-    margin-right: 10px;
-}
-.single-product input:focus {
-    outline: none;
-}
-
-.single-product .buy-btn {
-    background-color: #fb774b;
-    opacity: 1;
-    transition: 0.4s all;
-}
-
-.single-product .buy-btn:hover {
-    background-color: #222222;
+    background-color: #BBE79D;
 }
 
 
 
 /*Cart*/
-
 .cart table {
     width: 100%;
     border-collapse: collapse;
@@ -342,7 +412,7 @@ footer .copyright img {
     text-align: left;
     padding: 5px 10px;
     color: #fff;
-    background-color: #fb774b;
+    background-color: #BBE79D;
 }
 
 .cart td {
@@ -362,11 +432,11 @@ footer .copyright img {
 }
 
 .cart td a {
-    color: #fb774b;
+    color: #BBE79D;
 }
 
 .cart .remove-btn {
-    color: #fb774b;
+    color: #BBE79D;
     text-decoration: none;
     font-size: 14px;
     background-color: #fff;
@@ -375,7 +445,7 @@ footer .copyright img {
 }
 
 .cart .edit-btn {
-    color: #fb774b;
+    color: #BBE79D;
     text-decoration: none;
     font-size: 15px;
     background-color: #fff;
@@ -394,7 +464,7 @@ footer .copyright img {
 .cart-total table {
     width: 100%;
     max-width: 500px;
-    border-top: 3px solid #fb774b;
+    border-top: 3px solid #BBE79D;
 }
 
 td:last-child {
@@ -413,18 +483,18 @@ th:last-child {
 .checkout-btn {
     display: flex;
     justify-content: flex-end;
-    background-color: #fb774b;
+    background-color: #BBE79D;
     color: #fff;
 }
 
-/* Login */
 
+
+/* Login */
 #login-form {
     width: 50%;
     margin: 5px auto;
     text-align: center;
-    padding: 20px;
-    border-top: 1 px solid #fb774b;
+    padding: 5px;
 }
 
 #login-form input {
@@ -433,22 +503,22 @@ th:last-child {
 }
 
 #login-form #login-btn {
-    background-color: #fb774b;
+    background-color: #BBE79D;
     color: #fff;
 }
 
 #login-form #register-url {
-    color: #fb774b;
+    color: #83D34D !important;
 }
 
-/* Register */
 
+
+/* Register */
 #register-form {
     width: 50%;
     margin: 5px auto;
     text-align: center;
-    padding: 20px;
-    border-top: 1 px solid #fb774b;
+    padding: 5px;
 }
 
 #register-form input {
@@ -457,39 +527,42 @@ th:last-child {
 }
 
 #register-form #register-btn {
-    background-color: #fb774b;
+    background-color: #BBE79D;
     color: #fff;
 }
 
 #register-form #login-url {
-    color: #fb774b;
+    color: #83D34D !important;
 }
 
-/* Account */
 
+
+/* Account */
 #account-form {
     width: 50%;
-    margin: 35px auto;
+    margin: 50px auto;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 #account-form input {
-    margin: 5px auto;
+    margin: 6px auto;
 }
 
 #account-form #change-pass-btn {
     color: #fff;
-    background-color: #fb774b;
+    background-color: #83D34D;
 }
 
 .account-info #orders-btn, #logout-btn {
-    color: #fb774b;
+    color: #83D34D;
     text-decoration: none;
+
 }
 
-/* Orders */
 
+
+/* Orders */
 .orders table {
     width: 100%;
     border-collapse: collapse;
@@ -503,16 +576,11 @@ th:last-child {
 .orders th {
     padding: 5px 10px;
     color: #fff;
-    background-color: #fb774b;
-    text-align: left;
-}
-
-.orders th:nth-child(2) {
-    text-align: right;
+    background-color: #BBE79D;
 }
 
 .orders td {
-    padding: 10px 20px;
+    padding: 20px 20px;
 }
 
 .orders td img {
@@ -521,9 +589,14 @@ th:last-child {
     margin-right: 10px;
 }
 
+.orders .order-details-btn {
+    color: #fff;
+    background-color: #82D24B;
+}
+
+
 
 /* Checkout */
-
 #checkout-form .checkout-small-element {
     display: inline-block;
     width: 48%;
@@ -542,11 +615,12 @@ th:last-child {
 
 #checkout-form #checkout-btn {
     color: #fff;
-    background-color: #fb774b;
+    background-color: #BBE79D;
 }
 
-/* Contact */
 
+
+/* Contact */
 #contact span {
-    color: #fb774b;
+    color: #83D34D;
 }
