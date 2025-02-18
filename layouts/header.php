@@ -52,11 +52,11 @@
                 <i class="fas fa-home"></i>
               </li>
 
-              <form action="search.php" method="GET" class="d-flex">
+              <!-- <form action="search.php" method="GET" class="d-flex">
     <input class="form-control me-2" type="text" name="query" placeholder="Enter book title or author" required>
     <button class="btn btn-outline-success" type="submit">Search</button>
 </form>
-
+ -->
 
 
               <!-- <li class="nav-item dropdown">

@@ -1,7 +1,7 @@
 <?php 
 
 session_start();
-include"server/connection.php";
+include "server/connection.php";
 
 
 if(empty($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {

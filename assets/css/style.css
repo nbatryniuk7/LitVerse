@@ -624,3 +624,12 @@ th:last-child {
 #contact span {
     color: #83D34D;
 }
+
+
+/* Admin login */
+
+.admin-form-container {
+    padding: 5%;
+    width: 50%; /* або будь-яке інше значення */
+    margin: 0 auto; /* Центрування форми */
+}
