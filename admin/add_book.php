@@ -35,7 +35,7 @@
                 <form id="create-form" enctype="multipart/form-data" method="POST" action="create_book.php">
                     <p style="color: red;"><?php if(isset($_GET['error'])){ echo $_GET['error'];} ?></p> 
 
-                    <div class="form-group mt-2"></div>
+                    <div class="form-group mt-2">
                         <label>Title</label>
                         <input type="text" class="form-control" id="book-name" name="title" placeholder="Title"/>
                     </div>

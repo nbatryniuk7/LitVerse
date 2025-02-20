@@ -2,7 +2,6 @@
 
 <?php
 
-
 include '../server/connection.php';
 
 if (isset($_SESSION['admin_logged_in'])) {
@@ -50,16 +49,6 @@ if (isset($_SESSION['admin_logged_in'])) {
   
 
 
-
-
-
-
-
-
-
-
-
-
         <div class="container-fluid">
             <div class="" style="min-height: 1000px">
                 
@@ -75,8 +64,6 @@ if (isset($_SESSION['admin_logged_in'])) {
 
 
     <h2 class="text-center">Login</h2>
-
-
 
     <div class="mx-auto container text-center w-50 m-5">
     <form id="login-form" enctype="multipart/form-data" method="POST" action="login.php">

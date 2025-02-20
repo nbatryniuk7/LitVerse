@@ -1,17 +1,11 @@
 <?php include 'header.php'; ?>
-
+<?php include '../server/connection.php'; ?>
 <?php
 
 if(!isset($_SESSION['admin_logged_in'])){
     header('location: login.php');
     exit();
 }
-
-
-?>
-
-
-<?php 
 
 
     // 1. determine page no
@@ -25,8 +19,6 @@ if(isset($_GET['page_no']) && $_GET['page_no'] != ""){
     $page_no = 1;
 }
 
-
-    
     // 2. return number of products
     $stmt = $conn->prepare("SELECT COUNT(*) AS total_records FROM books");
     $stmt->execute();
@@ -64,34 +56,34 @@ $books = $stmt2-> get_result();
 
 <div class="container-fluid">
     <div class="row" style="min-height: 1000px">
-        
 
 
     <?php include 'sidemenu.php'; ?>
 
 
-
-
-
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"> 
-            <h1 class="h2">Dashboard</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-                <div class="btn-group me-2">
-
-                </div>
+    <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">  
+           <h1 class="h2">Books</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
             </div>
         </div>
-
-
-        <h2>Books</h2>
+        </div>
 
         <?php if(isset($_GET['edit_success_message'])) { ?>
-            <p class="text-center" style="color: green;"><?php echo $_GET['edit_success_message'] ;?></p>
+            <p class="text-center" style="color: green;"><?php echo $_GET['edit_success_message'];?></p>
         <?php } ?>
 
         <?php if(isset($_GET['edit_failure_message'])) { ?>
             <p class="text-center" style="color: red;"><?php echo $_GET['edit_failure_message'] ;?></p>
+        <?php } ?>
+
+        <?php if(isset($_GET['book_created'])) { ?>
+            <p class="text-center" style="color: green;"><?php echo $_GET['book_created'];?></p>
+        <?php } ?>
+
+        <?php if(isset($_GET['book_failed'])) { ?>
+            <p class="text-center" style="color: red;"><?php echo $_GET['book_failed'] ;?></p>
         <?php } ?>
 
 
@@ -99,14 +91,15 @@ $books = $stmt2-> get_result();
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
-                        <tr>
-                            <th scope="col">Book Id</th>
-                            <th scope="col">Book Image</th>
-                            <th scope="col">Book Title</th>
-                            <th scope="col">Book Author</th>
-                            <th scope="col">Book Price</th>
+                        <tr class="text-center">
+                            <th scope="col">Id</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Price</th>
                             <th scope="col">Genre</th>
-                            <th scope="col">Book Description</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Edit Images</th>
                             <th scope="col">Edit</th>
                             <th scope="col">Delete</th>
                     </tr>
@@ -126,8 +119,10 @@ $books = $stmt2-> get_result();
                 <td><?php echo $book['genre']; ?></td>
                 <td><?php echo $book['book_description']; ?></td>
 
+                <td><a class="btn btn-warning" href="edit_images.php?book_id=<?php echo $book['book_id'];?>">Edit Images</a></td>
                 <td><a class="btn btn-primary" href="edit_book.php?book_id=<?php echo $book['book_id'];?>">Edit</a></td>
                 <td><a class="btn btn-danger">Delete</a></td>
+
             </tr>
 
         <?php } ?>
@@ -142,7 +137,7 @@ $books = $stmt2-> get_result();
             <ul class="pagination mt-5 mx-auto">
 
             <li class="page-item <?php if($page_no<=1){echo 'disabled';} ?>">
-              <a class="page-link" href="<?php if($page_no <= 1){echo '#';} else{echo "page_no=".($page_no-1);} ?>">Previous</a>
+              <a class="page-link" href="<?php if($page_no <= 1){echo '#';} else{echo "?page_no=".($page_no-1);} ?>">Previous</a>
             </li>
 
             <li class="page-item"><a class="page-link" href="?page_no=1">1</a></li>
@@ -154,7 +149,7 @@ $books = $stmt2-> get_result();
             <?php } ?>
 
             <li class="page-item <?php if($page_no >= $total_no_of_pages){echo 'disabled';}?>">
-                <a class="page-link" href="<?php if($page_no >= $total_no_of_pages){echo '#';} else{echo "page_no=".($page_no+1);} ?>">Next</a>
+                <a class="page-link" href="<?php if($page_no >= $total_no_of_pages){echo '#';} else{echo "?page_no=".($page_no+1);} ?>">Next</a>
             </li>
 
         </ul>

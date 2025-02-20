@@ -7,7 +7,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">
+                            <a class="nav-link" href="orders.php">
                                 Orders
                             </a>
                         </li>
@@ -24,7 +24,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="add_new_product.php">
+                            <a class="nav-link" href="add_book.php">
                                 Add New Book
                             </a>
                         </li>

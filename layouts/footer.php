@@ -8,9 +8,9 @@
     <div class="footer-one col-lg-3 col-md-6 col-sm-12">
       <h5 class="pb-2">Featured</h5>
       <ul class="text-uppercase">
-        <li><a href="#">Men</a></li>
-        <li><a href="#">Women</a></li>
-        <li><a href="#">Kids</a></li>
+        <li><a href="shop.php ">Fiction</a></li>
+        <li><a href="shop.php">Nonfiction</a></li>
+        <li><a href="shop.php">Kids</a></li>
       </ul>
     </div>
 
@@ -30,15 +30,15 @@
       </div>
     </div>
 
-    <div class="footer-one col-lg-3 col-md-6 col-sm-12">
+    <!-- <div class="footer-one col-lg-3 col-md-6 col-sm-12">
       <h5 class="pb-2">Instagram</h5>
       <div class="row">
-        <!-- <img src="img1.jpg" class="img-fluid w-25 h-100 m-2" alt="Instagram Image 1" /> -->
-        <!-- <img src="img2.jpg" class="img-fluid w-25 h-100 m-2" alt="Instagram Image 2" /> -->
-        <!-- <img src="img3.jpg" class="img-fluid w-25 h-100 m-2" alt="Instagram Image 3" /> -->
-        <!-- <img src="img4.jpg" class="img-fluid w-25 h-100 m-2" alt="Instagram Image 4" /> -->
+        <img src="img1.jpg" class="img-fluid w-25 h-100 m-2" alt="Instagram Image 1" />
+        <img src="img2.jpg" class="img-fluid w-25 h-100 m-2" alt="Instagram Image 2" />
+        <img src="img3.jpg" class="img-fluid w-25 h-100 m-2" alt="Instagram Image 3" />
+        <img src="img4.jpg" class="img-fluid w-25 h-100 m-2" alt="Instagram Image 4" />
       </div>
-    </div>
+    </div> -->
   </div>
 
   <div class="copyright mt-5">

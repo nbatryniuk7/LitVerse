@@ -23,9 +23,9 @@ if(isset($_GET['order_id'])){
    $stmt->bind_param("si",$order_status, $order_id);
 
    if($stmt->execute()){
-       header('location: index.php?order_updated=Order has been updated successfully');
+       header('location: orders.php?order_updated=Order has been updated successfully!');
    }else{
-       header('location: index.php?order_failed=Error occured, try again');
+       header('location: orders.php?order_failed=Error occured, try again');
    }
 
 
@@ -46,13 +46,14 @@ if(isset($_GET['order_id'])){
     <?php include 'sidemenu.php';?>
 
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">  
-            <div class="btn-toolbar mb-2 mb-md-0">
+           <h1 class="h2">Edit Order</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
             </div>
-        </div> 
-
-        <h2>Edit Order</h2>
+        </div>
+        </div>
 
         <div class="table-responsive">
 

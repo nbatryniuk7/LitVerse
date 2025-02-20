@@ -23,10 +23,10 @@
 
     $stmt = $conn->prepare("UPDATE books SET book_title=?, author=?, genre=?, book_price=?, book_description=? 
     WHERE book_id=?");
-    $stmt->bind_param("sssssi", $title, $author, $genre, $price, $description);
+    $stmt->bind_param("sssssi", $title, $author, $genre, $price, $description, $book_id);
 
     if($stmt->execute()){
-        header('location: books.php?edit_success_message=Product has been updated successfully');
+        header('location: books.php?edit_success_message=Product has been updated successfully!');
     }else{
         header('location: books.php?edit_failure_message=Error occured, try again');
     }
@@ -45,17 +45,16 @@
     <div class="row" style="min-height: 1000px">
         <?php include 'sidemenu.php'; ?>
 
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"> 
-                <h1 class="h2">Dashboard</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">  
+           <h1 class="h2">Edit Book</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
+            </div>
+        </div>
+        </div>
 
-            </div>
-            </div>
-            </div>
 
-            <h2>Edit Book</h2>
             <div class="table-responsive">
 
             <div class="mx-auto container">
@@ -66,7 +65,7 @@
 
                         <input type="hidden" name="book_id" value="<?php echo $book['book_id'];?>" />
 
-                    <div class="form-group mt-2"></div>
+                    <div class="form-group mt-2">
                         <label>Title</label>
                         <input type="text" class="form-control" id="book-name" name="title" value="<?php echo $book['book_title'] ?>" placeholder="Title"/>
                     </div>
@@ -79,7 +78,7 @@
                     <div class="form-group mt-2">
                         <label>Genre</label>
                         <select class="form-select" required name="genre">
-                            <option value="fiction">Fiction</option>
+                            <option value="Fiction">Fiction</option>
                             <option value="nonfiction">Nonfiction</option>
                             <option value="fantasy">Fantasy</option>
                             <option value="childrens-literature">Children`s literature</option>
@@ -88,7 +87,7 @@
 
                     <div class="form-group mt-2">
                         <label>Price</label>
-                        <input type="text" class="form-control" id="book-price" name="Price" value="<?php echo $book['book_price'] ?>" placeholder="Price"/>
+                        <input type="text" class="form-control" id="book-price" name="price" value="<?php echo $book['book_price'] ?>" placeholder="Price"/>
                     </div>
 
                     <div class="form-group mt-2">
@@ -97,7 +96,7 @@
                     </div>
 
                     <div class="form-group mt-3">
-                        <input type="submit" class="btn btn-primary" name="edit-btn" value="Edit"/>
+                        <input type="submit" class="btn btn-primary" name="edit_btn" value="Edit"/>
                     </div>
 
                     <?php } ?>

@@ -43,47 +43,14 @@
                 <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'account.php' ? 'active' : ''; ?>" href="account.php">Account</a>
               </li>
 
-              <li class="nav-item">
-                <i class="fas fa-shopping-cart"></i>
-              </li>
-
-              <li>
-                <i class="fas fa-user-circle"></i>
-                <i class="fas fa-home"></i>
-              </li>
-
-              <!-- <form action="search.php" method="GET" class="d-flex">
-    <input class="form-control me-2" type="text" name="query" placeholder="Enter book title or author" required>
+            </ul>
+            <form class="d-flex" action="shop.php" method="GET">
+    <input class="form-control me-2" type="search" name="search" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" placeholder="Search book" aria-label="Search">
     <button class="btn btn-outline-success" type="submit">Search</button>
 </form>
- -->
 
 
-              <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#"></a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-            </ul> -->
-<!--
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-
-              <div class="search-container">
-                <form action="" method="GET">
-                  <input type="text" name="query" class="search-input" placeholder="Enter the book title or author" required>
-                  <button type="submit" class="search-button">Search</button>
-                </form> 
-              </div>
-
-            </form>-->
           </div>
         </div>
           </nav>
+

@@ -119,6 +119,8 @@ function calculateTotalCart(){
                 <th>Subtotal</th>
             </tr>
 
+            <?php if(isset($_SESSION['cart'])) { ?>
+
 
             <?php foreach($_SESSION['cart'] as $key => $value){ ?>
 
@@ -153,6 +155,8 @@ function calculateTotalCart(){
 
             <?php } ?>
 
+            <?php } ?>
+
             </table>
 
 
@@ -161,7 +165,9 @@ function calculateTotalCart(){
                 <table>
                     <tr>
                         <td>Total</td>
-                        <td>₴ <?php echo $_SESSION['total']; ?></td>
+                        <?php if(isset($_SESSION['total'])) { ?>
+                          <td>₴ <?php echo $_SESSION['total']; ?></td>
+                          <?php } ?>
                     </tr>
                 </table>
             </div>

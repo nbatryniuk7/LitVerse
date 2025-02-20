@@ -1,15 +1,13 @@
-<?php include 'header.php'; ?>
+<?php 
+include 'header.php';
+include '../server/connection.php'; // Переконайся, що є підключення до БД
 
-<?php
-
-if(!isset($_SESSION['admin_logged_in'])){
+if (!isset($_SESSION['admin_logged_in'])) {
     header('location: login.php');
     exit();
 }
 
-
 ?>
-
 
 <?php 
 
@@ -37,7 +35,7 @@ if(isset($_GET['page_no']) && $_GET['page_no'] != ""){
     
     
     // 3. products per page
-$total_records_per_page = 5;
+$total_records_per_page = 10;
 
 $offset = ($page_no - 1) * $total_records_per_page;
 
@@ -60,14 +58,9 @@ $orders = $stmt2-> get_result();
 
 ?>
 
-
-
 <div class="container-fluid">
     <div class="row" style="min-height: 1000px">
-        
-
-
-    <?php include 'sidemenu.php'; ?>
+        <?php include 'sidemenu.php'; ?>
 
         <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">  
@@ -78,86 +71,69 @@ $orders = $stmt2-> get_result();
         </div>
         </div>
 
+            <?php if(isset($_GET['order_updated'])) { ?>
+                <p class="text-center text-success"><?php echo $_GET['order_updated']; ?></p>
+            <?php } ?>
 
-<?php if(isset($_GET['order_updated'])) { ?>
-    <p class="text-center" style="color: green;"><?php echo $_GET['order_updated'] ;?></p>
-<?php } ?>
+            <?php if(isset($_GET['order_failed'])) { ?>
+                <p class="text-center text-danger"><?php echo $_GET['order_failed']; ?></p>
+            <?php } ?>
 
-<?php if(isset($_GET['order_failed'])) { ?>
-    <p class="text-center" style="color: red;"><?php echo $_GET['order_failed'] ;?></p>
-<?php } ?>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>Order Id</th>
+                            <th>Order Date</th>
+                            <th>Order Status</th>
+                            <th>User Id</th>
+                            <th>User Phone</th>
+                            <th>User Address</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while ($order = $orders->fetch_assoc()) { ?>
+                            <tr>
+                                <td><?php echo $order['order_id']; ?></td>
+                                <td><?php echo $order['order_date']; ?></td>
+                                <td><?php echo $order['order_status']; ?></td>
+                                <td><?php echo $order['user_id']; ?></td>
+                                <td><?php echo $order['user_phone']; ?></td>
+                                <td><?php echo $order['user_address']; ?></td>
+                                <td><a class="btn btn-primary" href="edit_order.php?order_id=<?php echo $order['order_id']; ?>">Edit Status</a></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
 
-    <div class="table-responsive">
-        <table class="table table-striped table-sm">
-            <thead>
-                <tr>
-                    <th scope="col">Order Id</th>
-                    <th scope="col">Order Date</th>
-                    <th scope="col">Order Status</th>
-                    <th scope="col">User Id</th>
-                    <th scope="col">User Phone</th>
-                    <th scope="col">User Address</th>
-                    <th scope="col">Edit</th>
-                </tr>
-            </thead>
-    <tbody>
+            <!-- Pagination -->
+            <nav aria-label="Page navigation example" class="mx-auto">
+            <ul class="pagination mt-5 mx-auto">
 
+            <li class="page-item <?php if($page_no<=1){echo 'disabled';} ?>">
+              <a class="page-link" href="<?php if($page_no <= 1){echo '#';} else{echo "?page_no=".($page_no-1);} ?>">Previous</a>
+            </li>
 
+            <li class="page-item"><a class="page-link" href="?page_no=1">1</a></li>
+            <li class="page-item"><a class="page-link" href="?page_no=2">2</a></li>
 
-    <?php foreach($orders as $order){ ?>
+            <?php if($page_no >= 3){ ?>
+            <li class="page-item"><a class="page-link" href="#">...</a></li>
+            <li class="page-item"><a class="page-link" href="<?php echo "?page_no=".$page_no;?>"><?php echo $page_no;?></a></li>
+            <?php } ?>
 
-        <tr>
-            <td><?php echo $order['order_id']; ?></td>
-            <td><?php echo $order['order_date']; ?></td>
-            <td><?php echo $order['order_status']; ?></td>
-            <td><?php echo $order['user_id']; ?></td>
-            <td><?php echo $order['user_phone']; ?></td>
-            <td><?php echo $order['user_address']; ?></td>
+            <li class="page-item <?php if($page_no >= $total_no_of_pages){echo 'disabled';}?>">
+                <a class="page-link" href="<?php if($page_no >= $total_no_of_pages){echo '#';} else{echo "?page_no=".($page_no+1);} ?>">Next</a>
+            </li>
 
-            <td><a class="btn btn-primary" href="edit_order.php?order_id=<?php echo $order['order_id']; ?>">Edit Status</a></td>
-        </tr>
-
-    <?php } ?>
-
-    </tbody>
-</table>
-   
-
-
- <!--Pagination-->           
- <nav aria-label="Page navigation example" class="mx-auto">
-        <ul class="pagination mt-5 mx-auto">
-
-        <li class="page-item <?php if($page_no<=1){echo 'disabled';} ?>">
-          <a class="page-link" href="<?php if($page_no <= 1){echo '#';} else{echo "?page_no=".($page_no-1);} ?>">Previous</a>
-        </li>
-
-        <li class="page-item"><a class="page-link" href="?page_no=1">1</a></li>
-        <li class="page-item"><a class="page-link" href="?page_no=2">2</a></li>
-
-        <?php if($page_no >= 3){ ?>
-        <li class="page-item"><a class="page-link" href="#">...</a></li>
-        <li class="page-item"><a class="page-link" href="<?php echo "?page_no=".$page_no;?>"><?php echo $page_no;?></a></li>
-        <?php } ?>
-
-        <li class="page-item <?php if($page_no >= $total_no_of_pages){echo 'disabled';}?>">
-            <a class="page-link" href="<?php if($page_no >= $total_no_of_pages){echo '#';} else{echo "?page_no=".($page_no+1);} ?>">Next</a>
-        </li>
-
-    </ul>
-    </nav>
-
-
-
-</main>
+        </ul>
+        </nav>
+        </div>
+    </div>
 </div>
-</div>
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-<script>
-feather.replace();
-</script>
 </body>
 </html>
